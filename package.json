@@ -1,0 +1,7 @@
+{
+  "name": "learnprog",
+  "version": "0.0.1",
+  "description": "Some proj for training",
+  "scripts": { "test": "node js/app.js" },
+  "devDependencies": { "test": ">=0.0.5" }
+}
