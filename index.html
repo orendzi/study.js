@@ -4,9 +4,53 @@
 		<meta charset="utf-8">
 		<title>Home</title>
 		<link rel="stylesheet" href="css/app.css">
-		<script src="app.js"></script>
+		<script src="js/canvas-1dots.js"></script>
 	</head>
 	<body>
 		<h1>Home</h1>
+		<h2>This is dots lesson on canvas cycles</h2>
+		<section class="draw-ground">
+			<canvas id="dots-drawer" width="500" height="500"></canvas>
+		</section>
+		<script>
+			function draw() {
+			    var canvas = document.getElementById('dots-drawer');
+			    var ctx = canvas.getContext('2d');
+			    var w = 5;
+			    var h = 5;
+			    
+			    // simple dot
+			    ctx.fillRect(10, 10, w, h);
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a simple dot",10,50);
+			    
+			    // dotted rect
+			    for(var i=0; i<4; i++){
+			    	for(var j=0; i<7; j++){
+			    		var x = 10 + j * 10;
+			    		var y = 10 + i * 10;
+			    		ctx.fillRect(x, y, w, h);
+			    	}
+			    }
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a rectangular made of dots",10,50);
+			    
+			    // dotted path
+			    
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a rectangular with dotted stroke",10,50);
+			    
+			    // dotted pyramid
+			    
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a pyramid built up with dots",10,50);
+			    
+			    // dotted tannenbaum
+			    
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a wonderful Christmas Tree, yeaaah",10,50);
+			}
+			draw();
+		</script>
 	</body>
 </html>
