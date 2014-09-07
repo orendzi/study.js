@@ -13,11 +13,21 @@
 			<canvas id="dots-drawer" width="500" height="500"></canvas>
 		</section>
 		<script>
+		
+			function drawLine(ctx, dotsNum, x, y, width, height, space) {
+				for(var i=0; i<dotsNum; i++) {
+					var this_x = x + (width + space) * i;
+					ctx.fillRect(this_x, y, width, height);
+				}
+			}
+		
 			function draw() {
 			    var canvas = document.getElementById('dots-drawer');
 			    var ctx = canvas.getContext('2d');
 			    var w = 5;
 			    var h = 5;
+			    
+			    drawLine(ctx, 10, 0, 0, w, h, 5);
 			    
 			    // simple dot
 			    ctx.fillRect(10, 10, w, h);
@@ -25,32 +35,114 @@
 			    ctx.fillText("Here is a simple dot",10,50);
 			    
 			    // dotted rect
-			    for(var i=0; i<4; i++){
-			    	for(var j=0; i<7; j++){
+			    for(var i=0; i<7; i++){
+			    	for(var j=0; j<7; j++){
 			    		var x = 10 + j * 10;
-			    		var y = 10 + i * 10;
+			    		var y = 70 + i * 10;
 			    		ctx.fillRect(x, y, w, h);
 			    	}
 			    }
 			    ctx.font="10pt Arial";
-			    ctx.fillText("Here is a rectangular made of dots",10,50);
+			    ctx.fillText("Here is a square made of dots",10,160);
 			    
 			    // dotted path
+			    for(i=0; i<7; i++){
+			    	for(j=0; j<7; j++){
+			    		if (i===0 || i==6) {
+			    			x = 10 + j * 10;
+			    			y = 180 + i * 10;
+			    			ctx.fillRect(x, y, w, h);
+			    		} else if (j===0 || j==6) {
+		    				x = 10 + j * 10;
+		    				y = 180 + i * 10;
+		    				ctx.fillRect(x, y, w, h);
+			    		}
+			    	}
+			    }
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a square with dotted stroke",10,270);
+			    
+			    // dotted triangle
+			    for(i=0; i<7; i++){
+			    	for(j=0; j<i+1; j++){
+			    		x = 10 + j * 10;
+			    		y = 290 + i * 10;
+			    		ctx.fillRect(x, y, w, h);
+			    	}
+			    }
 			    
 			    ctx.font="10pt Arial";
-			    ctx.fillText("Here is a rectangular with dotted stroke",10,50);
+			    ctx.fillText("Here is a triangle built with dots",10,380);
+			    
+			    // dotted square with shifts
+			    for(i=0; i<7; i++){
+			    	for(j=0; j<7; j++){
+			    		if(i%2) {
+			    			x = 15 + j * 10;
+			    			y = 400 + i * 10;
+			    			if(j==6) break;
+			    		} else {
+			    			x = 10 + j * 10;
+			    			y = 400 + i * 10;
+			    		}
+			    		ctx.fillRect(x, y, w, h);
+			    	}
+			    }
+			    
+			    ctx.font="10pt Arial";
+			    ctx.fillText("Here is a square with shifts built with dots",10,490);
 			    
 			    // dotted pyramid
+			    function pyramid(numsAmount, x_startPoint, y_startPoint) {
+				    var space = 5;
+				    for(i=0; i<numsAmount; i++){
+				    	var x = x_startPoint - (w + space) * i,
+				    		y = y_startPoint + (h + space) * i;
+				    	drawLine(ctx, i*2+1, x, y, w, h, space);
+				    }
+			    }
+			    
+			    //was
+			    //  var startPoint = 200 + (4 + 10 * 10),
+			    // 	this_startPoint;
+			    // for(i=0; i<7; i++){
+			    // 	for(j=0; j<i+1; j++){
+			    // 		if(i%2) {
+			    // 			this_startPoint = startPoint - j * 10;
+			    // 			x = (this_startPoint + (j + 10 * 10)) * 2;
+			    // 			y = 10 + i * 10;
+			    // 		} else {
+			    // 			this_startPoint = (startPoint - j * 10) - 5;
+			    // 			x = this_startPoint + (j + 10 * 10);
+			    // 			y = 10 + i * 10;
+			    // 		}
+			    // 		ctx.fillRect(x, y, w, h);
+			    // 	}
+			    // }
 			    
 			    ctx.font="10pt Arial";
-			    ctx.fillText("Here is a pyramid built up with dots",10,50);
+			    ctx.fillText("Here is a pyramid built with dots",250,100);
 			    
 			    // dotted tannenbaum
-			    
+			    //function fib (n) {return (n-1)+(n-2)} // counts the number of dots in columns and rows using Fibonacci numbers, accroding with number of sets (n)
+			    function tannenBaum(repeatNum) {
+			    	var x_startPoint = 250 + (4 + 10 * 10),
+				    	y_startPoint = 10,
+				    	space = 5;
+				    var treeH = 0;
+			    	for (var k=0; k<repeatNum; k++) {
+			    		treeH += k;
+			    		var y = (h + space) * treeH;
+			    		pyramid(k + 1, x_startPoint, y);
+			    	}
+			    }
+			    tannenBaum(8);
 			    ctx.font="10pt Arial";
 			    ctx.fillText("Here is a wonderful Christmas Tree, yeaaah",10,50);
 			}
 			draw();
+			
+			
 		</script>
 	</body>
 </html>

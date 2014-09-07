@@ -5,3 +5,10 @@ body {
   padding: 20px;
   font-family: "Segoe UI", "Lucida Grande", "Ubuntu Regular";
 }
+
+/* line 13, ../sass/app.sass */
+canvas {
+  background: white;
+  padding: 20px;
+  border: 2px dotted #dfdfdf;
+}
