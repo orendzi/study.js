@@ -1,19 +1,23 @@
 // Fibonacci
 
+var newElement = document.getElementsByTagName('body');
+console.log(newElement);
 // for-cycle
 function fib(a, b, n) {
     var fibArray = [];
-    var paragraph = document.createElement('p');
     for(var i=0; i<n; i++) {
         var temp = a;
         a = b;
         b = temp + b;
         fibArray.push(a);
     }
-    paragraph.innerHTML(fibArray);
+   return fibArray; 
 }
 
-fib(0, 1, 8);
+function results (e, array) {
+    e.innerHTML = "<p>" + array + "</p>";
+}
+
 
 // 1recursion
 
