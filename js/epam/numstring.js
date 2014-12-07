@@ -26,7 +26,7 @@ var countNums = function (exp) {
     num_arr = converted_exp.split(numbers).filter(isNotEmpty);
     
     num_arr = num_arr.map(parseFloat);
-    if (num_arr.length <= 2) {
+    if (num_arr.length <= 1) {
         console.log('Not enough numbers for computing. The result is ' + num_arr);
         return num_arr;
     }
@@ -95,7 +95,7 @@ var clearString = function (string) {
 
 countNums ('3.5 землекопа +4 поросенка *10 рублей - 5.5 $ /5 человек =');
 countNums ('землекопов 7 =');
-// countNums ('2 apfelschtrudels +5.2 sahne *1.4 kater - 2.5 ? /1 champignoni =');
-// clearString ('Чего-с извОЛите-с?Барин-С!');
-// clearString ('Диван-кровать...');
-// clearString ('uhhhhh yre');
+countNums ('2 apfelschtrudels +5.2 sahne *1.4 kater - 2.5 ? /1 champignoni =');
+clearString ('Чего-с извОЛите-с?Барин-С!');
+clearString ('Диван-кровать...');
+clearString ('uhhhhh yre');
