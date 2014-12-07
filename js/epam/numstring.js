@@ -26,14 +26,19 @@ var countNums = function (exp) {
     num_arr = converted_exp.split(numbers).filter(isNotEmpty);
     
     num_arr = num_arr.map(parseFloat);
+    if (num_arr.length <= 2) {
+        console.log('Not enough numbers for computing. The result is ' + num_arr);
+        return num_arr;
+    }
+
 
     for (i=0; i < sign_arr.length; i++) {
         result = compute(num_arr[0], sign_arr[i], num_arr[1]);
         num_arr.splice(0, 2, result);
     }
     
-    console.log(result.toFixed(2));
-    return result.toFixed(2);
+    console.log(result);
+    return result;
     
 };
 
@@ -89,7 +94,8 @@ var clearString = function (string) {
 };
 
 countNums ('3.5 землекопа +4 поросенка *10 рублей - 5.5 $ /5 человек =');
-countNums ('2 apfelschtrudels +5.2 sahne *1.4 kater - 2.5 ? /1 champignoni =');
-clearString ('Чего-с извОЛите-с?Барин-С!');
-clearString ('Диван-кровать...');
-clearString ('uhhhhh yre');
+countNums ('землекопов 7 =');
+// countNums ('2 apfelschtrudels +5.2 sahne *1.4 kater - 2.5 ? /1 champignoni =');
+// clearString ('Чего-с извОЛите-с?Барин-С!');
+// clearString ('Диван-кровать...');
+// clearString ('uhhhhh yre');
