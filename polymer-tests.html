@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Polymer Experiments</title>
+        <!-- Styles -->
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <!-- Scripts, platform may need install -->
+        <script src="bower_components/platform/platform.js"></script>
+        <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+        <!-- Import polymer elements -->
+        <link rel="import" href="../components/font-roboto/roboto.html">
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+        <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+        <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    </head>
+    <!-- body unresolved prevents a flash of unstyled content (FOUC) if no support of custom elems -->
+    <body unresolved>
+        
+        <!-- Creating a template for custom elem, name = tag, should include a hyphen. Noscript = simple elem -->
+        <polymer-element name="x-foo" noscript>
+            <template>
+                <h1>Gello from x-foo</h1>
+            </template>
+        </polymer-element>
+        <!-- Adding custom element to page -->
+        <x-foo></x-foo>
+        
+        <!-- Polymer's custom elems = components -->
+        <core-header-panel>
+            <core-toolbar>
+                <!-- Identifies selcted child by name value or index value, name of the selected tab, self end - layout attr -->
+                <paper-tabs id="tabs" selected="all" self-end>
+                    <paper-tab name="all">All</paper-tab>
+                    <paper-tab name="favorites">Favorites</paper-tab>
+                </paper-tabs>
+            </core-toolbar>
+        </core-header-panel>
+        <!-- Scripts esp for these components -->
+        <script>
+            var tabs = document.querySelector('paper-tabs');
+            tabs.addEventListener('core-select', function() {
+                console.log("Selected: " + tabs.selected);
+            })
+        </script>
+        
+    </body>
+</html>
