@@ -7,12 +7,34 @@ input, select {
   background: #bbbbbb;
   color: #444444;
   padding: 2px 5px;
+  box-sizing: border-box;
 }
 
-/* line 12, ../sass/_forms.sass */
+/* line 13, ../sass/_forms.sass */
 form label {
-  display: inline;
   margin-right: 10px;
+}
+/* line 15, ../sass/_forms.sass */
+form > div {
+  margin-bottom: 7px;
+  width: 300px;
+  height: 35px;
+}
+/* line 19, ../sass/_forms.sass */
+form > div input, form > div select {
+  float: right;
+}
+/* line 21, ../sass/_forms.sass */
+form button {
+  margin: 10px 0;
+}
+
+/* line 24, ../sass/_forms.sass */
+button {
+  border: 0;
+  height: 30px;
+  background: #c5c5c5;
+  cursor: hand;
 }
 
 /* line 1, ../sass/_polymer.sass */

@@ -1,5 +1,4 @@
 window.addEventListener('load', function() {
-    
     console.log('ello, am loaded! ^o*/');
 
     var i,
@@ -47,6 +46,7 @@ window.addEventListener('load', function() {
             
         var newListItem = document.createElement('li'),
             newListItemData = {text: textVal, color: colorVal, marker: markerVal};
+            
         listItems.push(newListItemData);
         
         // Adding text node, styles appending to the DOM
@@ -56,10 +56,13 @@ window.addEventListener('load', function() {
         newListItem.style.listStyleType = newListItemData.marker;
         list.appendChild(newListItem);
         console.log('elem added');
-    });
+        return;
+    }, false);
     
     // Editing element
+    // console.log(chosenElement);
     // if no element with selected\chosen class, show sorrowful message
+    
     
     // Deleting element
     // if no element with selected\chosen class, show sorrowful message
@@ -80,6 +83,7 @@ window.addEventListener('load', function() {
             el.className=el.className.replace(reg, '');
         }
     }
+    
 });
 
 
