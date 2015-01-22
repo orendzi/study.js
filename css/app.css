@@ -47,7 +47,7 @@ core-toolbar {
   text-transform: uppercase;
 }
 
-/* line 9, ../sass/app.sass */
+/* line 10, ../sass/app.sass */
 body {
   background: #dedede;
   color: #444444;
@@ -55,9 +55,14 @@ body {
   font-family: "Segoe UI", "Lucida Grande", "Ubuntu Regular";
 }
 
-/* line 15, ../sass/app.sass */
+/* line 16, ../sass/app.sass */
 canvas {
   background: white;
   padding: 20px;
   border: 2px dotted #dfdfdf;
+}
+
+/* line 21, ../sass/app.sass */
+.chosen {
+  border: 3px solid blue;
 }
